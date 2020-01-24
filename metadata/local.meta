@@ -1,0 +1,30 @@
+[app/ui]
+version = 8.0.1
+modtime = 1579819886.905967000
+
+[app/launcher]
+version = 8.0.1
+modtime = 1579819886.909054000
+
+[views/map]
+owner = admin
+version = 8.0.1
+modtime = 1579848207.053369000
+
+[inputs/translink%3A%2F%2Ftest]
+version = 8.0.1
+modtime = 1579845850.904470000
+
+[props/translink%3Avehicle/EXTRACT-operator]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.0.1
+modtime = 1579846471.611345000
+
+[lookups/operators.csv]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 8.0.1
+modtime = 1579848147.168966000

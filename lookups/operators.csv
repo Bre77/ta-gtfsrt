@@ -1,0 +1,21 @@
+operator,name,icon
+QR,Queensland Rail,train
+GCLR,Gold Coast Light Rail,train
+BCC,Brisbane Ferry,ship
+BT,Brisbane Transport,bus
+SBL,Shorncliffe Bus Line,bus
+SUN,Sunbus,bus
+LCBS,Logan City Bus Service,bus
+HBL,Hornibrook Bus Line,bus
+TDEV,Transdev Queensland,bus
+WBS,Westside Bus Company,bus
+KBL,Kangaroo Bus Line,bus
+PRT,Park Ridge Transit,bus
+TBS,Thompson Bus Service,bus
+CBL,Caboolture Bus Line,bus
+SWT,South West Transit,bus
+HTM,,bus
+BIC,Bribie Island Coaches,bus
+MGB,Mt Gravatt Bus Service,bus
+BITS,Bay Island Transit,bus
+LBS,Loves Bus Service,bus
