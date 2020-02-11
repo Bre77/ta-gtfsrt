@@ -1,0 +1,46 @@
+<form>
+  <label>Map</label>
+  <fieldset submitButton="false">
+    <input type="time" token="time" searchWhenChanged="true">
+      <label>Time</label>
+      <default>
+        <earliest>-60m@m</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="dropdown" token="source">
+      <label>Feed</label>
+      <fieldForLabel>source</fieldForLabel>
+      <fieldForValue>source</fieldForValue>
+      <search>
+        <query>| metadata `gtfsrt-index` sourcetype="translink:vehicle" type=sources 
+| sort - totalCount</query>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </search>
+      <choice value="*">All</choice>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <viz type="location_tracker_app.location_tracker">
+        <search>
+          <query>`gtfsrt-index` sourcetype="gtfsrt:vehicle" source="$source$" lat!=0.0 lng!=0.0 
+| eventstats max(_time) as latest by id
+| addinfo
+| where (info_max_time-latest)&lt;300
+| table _time lat lng id</query>
+          <earliest>$time.earliest$</earliest>
+          <latest>$time.latest$</latest>
+        </search>
+        <option name="drilldown">none</option>
+        <option name="location_tracker_app.location_tracker.interval">120</option>
+        <option name="location_tracker_app.location_tracker.showTraces">1</option>
+        <option name="location_tracker_app.location_tracker.staticIcon">none</option>
+        <option name="location_tracker_app.location_tracker.tileSet">light_tiles</option>
+        <option name="refresh.display">progressbar</option>
+      </viz>
+    </panel>
+  </row>
+</form>

@@ -1,2 +1,3 @@
-[translink://<name>]
-filter = <value>
+[gtfsrt://<name>]
+feed = <string>
+auth = <string>

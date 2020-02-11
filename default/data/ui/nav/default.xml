@@ -1,7 +1,8 @@
 <nav search_view="search">
-  <view name="search" default='true' />
-  <view name="datasets" />
-  <view name="reports" />
-  <view name="alerts" />
+  <view name="home" default='true' />
+  <view name="map" />
+  <collection label="Providers">
+    <view name="translink" />
+  </collection> 
   <view name="dashboards" />
 </nav>

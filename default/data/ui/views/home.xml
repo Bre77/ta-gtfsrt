@@ -1,0 +1,55 @@
+<dashboard>
+  <label>Home</label>
+  <row>
+    <panel>
+      <chart>
+        <title>Data Timeline</title>
+        <search>
+          <query>| tstats count where `gtfsrt-index` by source _time 
+| xyseries _time source count</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <table>
+        <title>Feeds</title>
+        <search>
+          <query>| tstats count where `gtfsrt-index` by source sourcetype
+| xyseries source sourcetype count 
+| addtotals 
+| sort - Total
+| fields - Total</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="drilldown">cell</option>
+        <option name="refresh.display">progressbar</option>
+        <drilldown>
+          <link target="_blank">/app/TA-gtfsrt/map?form.source=$click.value$</link>
+        </drilldown>
+      </table>
+    </panel>
+    <panel>
+      <chart>
+        <title>Sourcetypes</title>
+        <search>
+          <query>| metadata `gtfsrt-index` type=sourcetypes
+| fields sourcetype totalCount</query>
+          <earliest>-24h@h</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="charting.chart">pie</option>
+        <option name="charting.drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
+      </chart>
+    </panel>
+  </row>
+</dashboard>

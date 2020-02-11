@@ -35,6 +35,7 @@ SCHEME = """<scheme>
                 <title>Authorisation header</title>
                 <description>The value for the Authorisation header, such as "apikey abc123"</description>
                 <data_type>string</data_type>
+                <required_on_create>false</required_on_create>
             </arg>
         </args>
     </endpoint>
