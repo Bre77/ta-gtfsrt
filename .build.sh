@@ -3,7 +3,7 @@ cd "${0%/*}"
 OUTPUT="${1:-TA-gtfsrt.spl}"
 chmod -R u=rwX,go= *
 chmod -R u-x+X *
-chmod -R u=rwx,go= *
+chmod -R u=rwx,go= bin/*
 python3.9 -m pip install --upgrade --no-dependencies -t lib -r lib/requirements.txt
 cd ..
 tar -cpzf $OUTPUT --exclude=.* --exclude=package.json --overwrite TA-gtfsrt
